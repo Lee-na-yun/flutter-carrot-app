@@ -15,6 +15,7 @@ TextTheme textTheme() {
 AppBarTheme appTheme() {
   return AppBarTheme(
     centerTitle: false, // = text-align:center를 false로 해서 기본 왼쪽정렬 됨!
+    foregroundColor: Colors.black,
     color: Colors.white,
     elevation: 0.0,
     titleTextStyle: textTheme().headline6,
