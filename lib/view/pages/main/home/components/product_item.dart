@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carrot_market/models/product.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,28 @@ class ProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 135.0,
-      child: Row(),
+      child: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: CachedNetworkImage(
+              imageUrl: product.urlToImage,
+              width: 115,
+              height: 115,
+              fit: BoxFit.cover,
+              progressIndicatorBuilder: (context, url, progress) => CircularProgressIndicator(
+                value: progress.progress,
+              ),
+            ),
+            // child: Image.network(
+            //   product.urlToImage, //변수를 바로 찾음
+            //   width: 115,
+            //   height: 115,
+            //   fit: BoxFit.cover,
+            // ),
+          ),
+        ],
+      ),
     );
   }
 }

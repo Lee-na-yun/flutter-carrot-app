@@ -15,6 +15,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   font_awesome_flutter: ^10.2.1
   intl: ^0.17.0   #날짜 포맷, 숫자 포맷
+  cached_network_image: ^3.2.1
 
 dev_dependencies:
   flutter_test:
