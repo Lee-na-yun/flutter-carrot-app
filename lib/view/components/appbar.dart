@@ -19,11 +19,11 @@ AppBar BuildAppBar() {
       IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.bell)),
     ],
     bottom: PreferredSize(
-      preferredSize: Size.fromHeight(0.5),
+      preferredSize: Size.fromHeight(1),
       child: Divider(
         thickness: 0.5,
         height: 0.5,
-        color: Colors.grey,
+        color: Colors.black12,
       ),
     ),
   );
