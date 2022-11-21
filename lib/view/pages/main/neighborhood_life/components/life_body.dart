@@ -20,34 +20,38 @@ class LifeBody extends StatelessWidget {
           _buildContentImage(),
           const SizedBox(height: 20),
           Divider(
-            color: Colors.grey[300],
+            color: Colors.grey[500],
             height: 1,
             thickness: 0.5,
           ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Row(
-              children: [
-                Icon(
-                  FontAwesomeIcons.smile,
-                  color: Colors.grey,
-                  size: 22,
-                ),
-                SizedBox(width: 8),
-                Text("공감하기", style: textTheme().bodyText1),
-                SizedBox(width: 22),
-                Icon(
-                  FontAwesomeIcons.commentAlt,
-                  color: Colors.grey,
-                  size: 22,
-                ),
-                SizedBox(width: 8),
-                Text("댓글쓰기", style: textTheme().bodyText1),
-                SizedBox(width: 8),
-                Text("${neighborhoodLife.commentCount}", style: textTheme().bodyText1),
-              ],
-            ),
+          _buildIcons(),
+        ],
+      ),
+    );
+  }
+
+  Padding _buildIcons() {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Row(
+        children: [
+          Icon(
+            FontAwesomeIcons.smile,
+            color: Colors.grey,
+            size: 22,
           ),
+          SizedBox(width: 8),
+          Text("공감하기", style: textTheme().bodyText1),
+          SizedBox(width: 22),
+          Icon(
+            FontAwesomeIcons.commentAlt,
+            color: Colors.grey,
+            size: 22,
+          ),
+          SizedBox(width: 8),
+          Text("댓글쓰기", style: textTheme().bodyText1),
+          SizedBox(width: 8),
+          Text("${neighborhoodLife.commentCount}", style: textTheme().bodyText1),
         ],
       ),
     );
