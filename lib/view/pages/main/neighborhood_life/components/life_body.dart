@@ -79,6 +79,7 @@ class LifeBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Align(
+        alignment: Alignment.centerLeft,
         child: Text(
           "${neighborhoodLife.content}",
           style: textTheme().bodyText1,
