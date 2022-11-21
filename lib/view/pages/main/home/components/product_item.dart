@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carrot_market/models/product.dart';
+import 'package:carrot_market/view/pages/main/home/components/product_detail.dart';
 import 'package:flutter/material.dart';
 
 class ProductItem extends StatelessWidget {
@@ -10,27 +11,30 @@ class ProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 135.0,
-      child: Row(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: CachedNetworkImage(
-              imageUrl: product.urlToImage,
-              width: 115,
-              height: 115,
-              fit: BoxFit.cover,
-              progressIndicatorBuilder: (context, url, progress) => CircularProgressIndicator(
-                value: progress.progress,
-              ),
-            ),
-            // child: Image.network(
-            //   product.urlToImage, //변수를 바로 찾음
-            //   width: 115,
-            //   height: 115,
-            //   fit: BoxFit.cover,
-            // ),
-          ),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          children: [
+            _buildProductImage(),
+            const SizedBox(width: 16),
+            ProductDetail(product), // Riverpod을 쓰면 viewModel 데이터를 넘길 필요 없음(=디펜던시 인젝션 하면 됨)
+          ],
+        ),
+      ),
+    );
+  }
+
+  ClipRRect _buildProductImage() {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: CachedNetworkImage(
+        imageUrl: product.urlToImage,
+        width: 115,
+        height: 115,
+        fit: BoxFit.cover,
+        progressIndicatorBuilder: (context, url, progress) => CircularProgressIndicator(
+          value: progress.progress,
+        ),
       ),
     );
   }
